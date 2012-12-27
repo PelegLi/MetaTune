@@ -18,16 +18,10 @@
 		public function displayItemData()
 		{
 			echo "<h3>$this->name</h3>";
-			echo "$this->headline_bio </br>";
+			if ($this->headline_bio != "")
+				echo "$this->headline_bio </br>";
 			echo "Genres: ";
-			$count = 1;
-			foreach ($this->genres as $genre)
-			{
-				echo "$genre";
-				if ($count < count($this->genres))
-					echo ", ";
-				$count++;
-			}
+			$this->printArrayValues($this->genres);
 			echo "</br>$this->birth - ";
 			echo "$this->death";
 		}

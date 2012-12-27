@@ -10,10 +10,10 @@
 		abstract public function displayItemData();
 		abstract public function parseJSON($json_decoded, $dataCluster);
 		
-		public function getRequestString($search_value, $sig, $dataCluster)
+		public function getRequestString($search_value, $sig, $dataCluster, $id)
 		{
 			$class = strtolower(get_class($this));
-			$requestString = "http://api.rovicorp.com/data/v1.1/" . $class . "/" . $dataCluster . "?" . $class . "=" . $search_value . "&duration=10080&inprogress=0&country=US&language=en&format=json&apikey=f52a3zyhzt6ur5zwrz87xfp3&sig=" . $sig;
+			$requestString = "http://api.rovicorp.com/data/v1.1/" . $class . "/" . $dataCluster . "?" . $class . $id . "=" . $search_value . "&duration=10080&inprogress=0&country=US&language=en&format=json&apikey=f52a3zyhzt6ur5zwrz87xfp3&sig=" . $sig;
 			return $requestString;
 		}
 		
@@ -34,6 +34,18 @@
 		{
 			foreach ($clustersArray as $cluster)
 				$this->dataClusters[] = $cluster; 
+		}
+		
+		public function printArrayValues($arr)
+		{
+			$count = 1;
+			foreach ($arr as $val)
+			{
+				echo "$val";
+				if ($count < count($arr))
+					echo ", ";
+				$count++;
+			}
 		}
 	}
 

@@ -15,12 +15,12 @@
 		public $searchItem;
 		public $id;
 		
-		function __construct($search_value)
+		function __construct($search_value, $idSearch)
 		{
-			$this->json_decoded = $this->getJSONSearchResults($search_value);			
+			$this->json_decoded = $this->getJSONSearchResults($search_value, $idSearch);			
 		}
 		
-		function getJSONSearchResults($search_value)
+		function getJSONSearchResults($search_value, $idSearch)
 		{
 			$sig = SigGen::createMD5Hash();
 			$search_value = str_replace(' ', '+', $_GET["search_value"]);
@@ -29,7 +29,7 @@
 			
 			foreach ($this->searchItem->dataClusters as $dataCluster)
 			{
-				$requestString = $this->searchItem->getRequestString($search_value, $sig, $dataCluster);
+				$requestString = $this->searchItem->getRequestString($search_value, $sig, $dataCluster, $idSearch);
 				$json_request = file_get_contents($requestString);
 				$this->json_decoded = json_decode($json_request, true);
 				$this->searchItem->parseJSON($this->json_decoded, $dataCluster);

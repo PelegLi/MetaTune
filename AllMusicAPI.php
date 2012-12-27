@@ -2,8 +2,6 @@
 
 	include_once "../dostuff.php";
 	require_once "Search.php";
-	 
-//	$connection = connectToDB();
 	
 ?>
 
@@ -40,7 +38,8 @@
 		
 			if (isset($_GET["search_value"]) && ($_GET["search_value"]) != "")
 			{
-				$search = new Search($_GET["search_value"]);				
+				$idSearch = isset($_GET["idSearch"]) ? "id" : "";
+				$search = new Search($_GET["search_value"], $idSearch);				
 				$search->searchItem->displayItemData();
 			}
 
