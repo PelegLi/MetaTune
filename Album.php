@@ -5,14 +5,15 @@
 	class Album extends SearchItem
 	{
 		public $title;
-		public $artists = array();
 		public $releaseDate;
-		private $genres = array();
-		//private $tracks = array();
+		public $views;
+		public $artists = array();		
+		public $genres = array();
+		public $tracks = array();
 		
 		public function __construct()
 		{
-			parent::setDataClusters(array("info", "releases"));
+			parent::setDataClusters(array("info", "tracks"));
 			if (func_num_args() > 0)
 			{
 				$this->id = func_get_args(0)[0];
@@ -28,6 +29,22 @@
 			echo "</br>Release date: $this->releaseDate </br>";
 			echo "Genres: ";
 			$this->printArrayValues($this->genres);	
+			echo $this->displayTracks();
+		}
+		
+		public function displayTracks()
+		{			
+			echo "</br>";
+			$count = 1;
+			$urlPreFix = "allmusicapi.php?searchItems=Track&idSearch=id&search_value=";
+			foreach ($this->tracks as $track)
+				if (isset($track->id) && isset($track->title))
+				{
+					echo "<a href=$urlPreFix$track->id>$track->title</a>";
+					if ($count < count($this->tracks))
+						echo "</br> ";
+					$count++;
+				}
 		}
 		
 		public function parseJSON($json_decoded, $dataCluster)
@@ -46,8 +63,15 @@
 					$this->releaseDate = $json_decoded['album']['originalReleaseDate'];
 					break;
 					
-				case "releases":
-					
+				case "tracks":
+					$this->views = $json_decoded['view']['total'];
+					$this->tracks = $json_decoded['tracks'];
+					if (isset($json_decoded['tracks']))
+						foreach ($json_decoded['tracks'] as $track)
+						{
+							$newTrack = new Track($track['ids']['trackId'], $track['title']);
+							$this->tracks[] = $newTrack;
+						}
 					break;
 			}
 		}

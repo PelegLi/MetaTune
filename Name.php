@@ -4,11 +4,12 @@
 	
 	class Name extends SearchItem
 	{
-		private $name;
-		private $headline_bio;
-		private $genres = array();
-		private $birth;
-		private $death;
+		public $name;
+		public $headline_bio;
+		public $birth;
+		public $death;
+		public $genres = array();
+		public $albums = array();
 		
 		public function __construct()
 		{
