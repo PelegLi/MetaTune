@@ -10,41 +10,27 @@
 		public $artists = array();		
 		public $genres = array();
 		public $tracks = array();
+		public $dataClusters = array("info", "tracks");
 		
 		public function __construct()
 		{
-			parent::setDataClusters(array("info", "tracks"));
 			if (func_num_args() > 0)
 			{
 				$this->id = func_get_args(0)[0];
 				$this->title = func_get_args(0)[1];
-				$this->releaseDate = func_get_args(0)[2];
+				$this->releaseDate = parent::rectifyDate(func_get_args(0)[2], "Album");
 			}
 		}
 
 		public function displayItemData()
 		{
 			echo "<h3>$this->title</h3>";
-			$this->printArrayValues($this->artists);
+			$this->displayArtists();
 			echo "</br>Release date: $this->releaseDate </br>";
 			echo "Genres: ";
 			$this->printArrayValues($this->genres);	
-			echo $this->displayTracks();
-		}
-		
-		public function displayTracks()
-		{			
 			echo "</br>";
-			$count = 1;
-			$urlPreFix = "allmusicapi.php?searchItems=Track&idSearch=id&search_value=";
-			foreach ($this->tracks as $track)
-				if (isset($track->id) && isset($track->title))
-				{
-					echo "<a href=$urlPreFix$track->id>$track->title</a>";
-					if ($count < count($this->tracks))
-						echo "</br> ";
-					$count++;
-				}
+			$this->displayTracks();
 		}
 		
 		public function parseJSON($json_decoded, $dataCluster)
@@ -56,11 +42,14 @@
 					$this->title = $json_decoded['album']['title'];
 					if (isset($json_decoded['album']['primaryArtists']))
 						foreach ($json_decoded['album']['primaryArtists'] as $artist)
-							$this->artists[] = $artist['name'];
+						{
+							$newArtist = new Name($artist['id'], $artist['name']);
+							$this->artists[] = $newArtist;
+						}
 					if (isset($json_decoded['album']['genres']))
 						foreach ($json_decoded['album']['genres'] as $genre)
 							$this->genres[] = $genre['name'];
-					$this->releaseDate = $json_decoded['album']['originalReleaseDate'];
+					$this->releaseDate = parent::rectifyDate($json_decoded['album']['originalReleaseDate'], "Album");
 					break;
 					
 				case "tracks":

@@ -9,10 +9,10 @@
 		public $views;
 		public $genres = array();
 		public $albums = array();
+		public $dataClusters = array("info", "appearances");
 		
 		public function __construct()
 		{
-			parent::setDataClusters(array("info", "appearances"));
 			if (func_num_args() > 0)
 			{
 				$this->id = func_get_args(0)[0];
@@ -36,23 +36,7 @@
 			echo "</br>Appears in $this->views album";
 			if ($this->views > 1) echo "s";
 				echo ":</br>";
-			echo $this->displayAlbums();
-		}
-
-		public function displayAlbums()
-		{
-			$count = 1;
-			$urlPreFix = "allmusicapi.php?searchItems=Album&idSearch=id&search_value=";
-			foreach ($this->albums as $album)
-				if (isset($album->id) && isset($album->title) && isset($album->releaseDate))
-				{
-					echo "<a href=$urlPreFix$album->id>$album->title</a>";
-					if ($album->releaseDate)
-						echo " - $album->releaseDate";
-					if ($count < count($this->albums))
-						echo "</br> ";
-					$count++;
-				}
+			$this->displayAlbums();
 		}
 
 		public function parseJSON($json_decoded, $dataCluster)

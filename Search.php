@@ -25,8 +25,8 @@
 			$sig = SigGen::createMD5Hash();
 			$search_value = str_replace(' ', '+', $_GET["search_value"]);
 			$this->setSearchId($sig);
-			$this->searchItem = FactorySearchItem::getType($_GET["searchItems"]);
-			
+			$this->searchItem = FactorySearchItem::createSearchItem($_GET["searchItems"]);
+
 			foreach ($this->searchItem->dataClusters as $dataCluster)
 			{
 				$requestString = $this->searchItem->getRequestString($search_value, $sig, $dataCluster, $idSearch);

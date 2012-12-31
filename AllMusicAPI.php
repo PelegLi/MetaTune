@@ -42,6 +42,13 @@
 				$search = new Search($_GET["search_value"], $idSearch);				
 				$search->searchItem->displayItemData();
 			}
+			
+			/* TODO:
+			 * 
+			 * Display only artists' "real" albums on the artist view.
+			 * Invert discography from old to new.
+			 * 
+			 */
 
 		?>
 		

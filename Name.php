@@ -10,10 +10,15 @@
 		public $death;
 		public $genres = array();
 		public $albums = array();
+		public $dataClusters = array("info", "discography");
 		
 		public function __construct()
 		{
-			parent::setDataClusters(array("info"));
+			if (func_num_args() > 0)
+			{
+				$this->id = func_get_args(0)[0];
+				$this->name = func_get_args(0)[1];
+			}
 		}
 	
 		public function displayItemData()
@@ -24,7 +29,9 @@
 			echo "Genres: ";
 			$this->printArrayValues($this->genres);
 			echo "</br>$this->birth - ";
-			echo "$this->death";
+			echo "$this->death</br></br>";
+			echo "Discography:</br>";
+			$this->displayAlbums();
 		}
 		
 		public function parseJSON($json_decoded, $dataCluster)
@@ -39,8 +46,17 @@
 					if (isset($json_decoded['name']['musicGenres']))
 						foreach ($json_decoded['name']['musicGenres'] as $genre)
 							$this->genres[] = $genre['name'];
-					$this->birth = parent::rectifyDate($json_decoded['name']['birth']['date']);
-					$this->death = parent::rectifyDate($json_decoded['name']['death']['date']);
+					$this->birth = parent::rectifyDate($json_decoded['name']['birth']['date'], "Name");
+					$this->death = parent::rectifyDate($json_decoded['name']['death']['date'], "Name");
+					break;
+					
+				case "discography":
+					if (isset($json_decoded['discography']))
+						foreach ($json_decoded['discography'] as $album)
+						{
+							$newAlbum = new Album($album['ids']['albumId'], $album['title'], $album['year']);
+							$this->albums[] = $newAlbum;
+						}
 					break;
 			}
 		}

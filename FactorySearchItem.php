@@ -7,7 +7,7 @@
 
 	class FactorySearchItem
 	{  
-	    public static function getType($type)
+	    public static function createSearchItem($type)
 	     {  
 	        $class = $type;
 	        if (class_exists($class))
