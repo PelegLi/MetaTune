@@ -8,7 +8,6 @@
 		public $releaseDate;
 		public $views;
 		public $artists = array();		
-		public $genres = array();
 		public $tracks = array();
 		public $dataClusters = array("info", "tracks");
 		

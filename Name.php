@@ -8,7 +8,6 @@
 		public $headline_bio;
 		public $birth;
 		public $death;
-		public $genres = array();
 		public $albums = array();
 		public $dataClusters = array("info", "discography");
 		

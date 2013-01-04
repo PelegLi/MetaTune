@@ -6,6 +6,7 @@
 		public $sig;
 		public $search_value;
 		public $dataClusters = array();
+		public $genres = array();
 		
 		abstract public function displayItemData();
 		abstract public function parseJSON($json_decoded, $dataCluster);
@@ -63,8 +64,8 @@
 						echo " - $album->releaseDate";
 					if ($count < count($this->albums))
 						echo "</br> ";
-				$count++;
-			}
+					$count++;
+				}
 		}	
 		
 		public function displayTracks()

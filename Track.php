@@ -7,7 +7,6 @@
 	{
 		public $title;
 		public $views;
-		public $genres = array();
 		public $albums = array();
 		public $dataClusters = array("info", "appearances");
 		

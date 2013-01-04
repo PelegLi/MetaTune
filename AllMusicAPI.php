@@ -47,6 +47,7 @@
 			 * 
 			 * Display only artists' "real" albums on the artist view.
 			 * Invert discography from old to new.
+			 * Manage 404 error for bad search.
 			 * 
 			 */
 
