@@ -1,19 +1,14 @@
 <?php 
 
-	/*	  ** xml code **
-	 
-	$feedURL = 'http://api.rovicorp.com/data/v1.1/name/info?name=led+zeppelin&duration=10080&inprogress=0&country=US&language=en&format=xml&apikey=f52a3zyhzt6ur5zwrz87xfp3&sig=ea5673b6e6c4497bb2675cc8c1ec62ae';	
-	$sxml = simplexml_load_file($feedURL);
-	echo $sxml->name;
-	*/
 	require_once("SigGen.php");
 	require_once("FactorySearchItem.php");
 
 	class Search
 	{
+		public $id;
 		public $json_decoded;
 		public $searchItem;
-		public $id;
+		public $response;
 		
 		function __construct($search_value, $idSearch)
 		{
@@ -30,9 +25,24 @@
 			foreach ($this->searchItem->dataClusters as $dataCluster)
 			{
 				$requestString = $this->searchItem->getRequestString($search_value, $sig, $dataCluster, $idSearch);
-				$json_request = file_get_contents($requestString);
-				$this->json_decoded = json_decode($json_request, true);
-				$this->searchItem->parseJSON($this->json_decoded, $dataCluster);
+				
+				try
+				{
+					if (!$json_request = @file_get_contents($requestString))
+						throw new Exception($search_value);
+					else 
+					{
+						$this->response = "200";
+						$this->json_decoded = json_decode($json_request, true);
+						$this->searchItem->parseJSON($this->json_decoded, $dataCluster);
+					}
+				}
+				catch (Exception $ex)
+				{
+					echo 'Could not find results for: "' . $ex->getMessage() . '".';
+					$this->response = "404";
+					break;
+				}
 			}
 		}
 		

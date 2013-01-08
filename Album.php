@@ -11,14 +11,11 @@
 		public $tracks = array();
 		public $dataClusters = array("info", "tracks");
 		
-		public function __construct()
+		public function __construct($id = null, $title = null, $releaseDate = null)
 		{
-			if (func_num_args() > 0)
-			{
-				$this->id = func_get_args(0)[0];
-				$this->title = func_get_args(0)[1];
-				$this->releaseDate = parent::rectifyDate(func_get_args(0)[2], "Album");
-			}
+				$this->id = $id;
+				$this->title = $title;
+				$this->releaseDate = parent::rectifyDate($releaseDate, "Album");
 		}
 
 		public function displayItemData()

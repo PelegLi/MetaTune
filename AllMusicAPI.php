@@ -1,6 +1,5 @@
 <?php 
 
-	include_once "../dostuff.php";
 	require_once "Search.php";
 	
 ?>
@@ -40,14 +39,14 @@
 			{
 				$idSearch = isset($_GET["idSearch"]) ? "id" : "";
 				$search = new Search($_GET["search_value"], $idSearch);				
-				$search->searchItem->displayItemData();
+				if (!($search->response != "200"))
+					$search->searchItem->displayItemData();
 			}
 			
 			/* TODO:
 			 * 
-			 * Display only artists' "real" albums on the artist view.
+			 * Display only artists' official albums on the artist view.
 			 * Invert discography from old to new.
-			 * Manage 404 error for bad search.
 			 * 
 			 */
 

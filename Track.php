@@ -1,7 +1,6 @@
 <?php 
 
 	require_once "SearchItem.php";
-	require_once "Album.php";
 	
 	class Track extends SearchItem
 	{
@@ -10,13 +9,10 @@
 		public $albums = array();
 		public $dataClusters = array("info", "appearances");
 		
-		public function __construct()
+		public function __construct($id = null, $title = null)
 		{
-			if (func_num_args() > 0)
-			{
-				$this->id = func_get_args(0)[0];
-				$this->title = func_get_args(0)[1];
-			}
+			$this->id = $id;
+			$this->title = $title;
 		}
 		
 		public function getRequestString($search_value, $sig, $dataCluster, $id)

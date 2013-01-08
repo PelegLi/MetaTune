@@ -11,13 +11,10 @@
 		public $albums = array();
 		public $dataClusters = array("info", "discography");
 		
-		public function __construct()
+		public function __construct($id = null, $name = null)
 		{
-			if (func_num_args() > 0)
-			{
-				$this->id = func_get_args(0)[0];
-				$this->name = func_get_args(0)[1];
-			}
+			$this->id = $id;
+			$this->name = $name;
 		}
 	
 		public function displayItemData()

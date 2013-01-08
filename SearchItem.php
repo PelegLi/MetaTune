@@ -52,6 +52,8 @@
 			}
 		}
 		
+		// TODO:  join displayAlbums, tracks, artists
+		
 		public function displayAlbums()
 		{
 			$count = 1;
