@@ -1,18 +1,18 @@
 <?php 
 
-	require_once("SigGen.php");
-	require_once("FactorySearchItem.php");
+	require_once "SigGen.php";
+	require_once "FactorySearchItem.php";
 
 	class Search
 	{
 		public $id;
 		public $json_decoded;
 		public $searchItem;
-		public $response;
+		public $response = array();
 		
 		function __construct($search_value, $idSearch)
 		{
-			$this->json_decoded = $this->getJSONSearchResults($search_value, $idSearch);			
+			$this->json_decoded = $this->getJSONSearchResults($search_value, $idSearch);
 		}
 		
 		function getJSONSearchResults($search_value, $idSearch)
@@ -32,15 +32,17 @@
 						throw new Exception($search_value);
 					else 
 					{
-						$this->response = "200";
+						$this->response["code"] = "200";
+						$this->response["status"] = "ok";
 						$this->json_decoded = json_decode($json_request, true);
 						$this->searchItem->parseJSON($this->json_decoded, $dataCluster);
 					}
 				}
 				catch (Exception $ex)
 				{
-					echo 'Could not find results for: "' . $ex->getMessage() . '".';
-					$this->response = "404";
+					$this->response["code"] = "404";
+					$this->response["status"] = "error";
+					$this->response["message"] = $ex->getMessage();
 					break;
 				}
 			}

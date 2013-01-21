@@ -1,6 +1,6 @@
 <?php 
 
-	require_once "SearchItem.php";
+	require_once "models/SearchItem.php";
 	
 	class Track extends SearchItem
 	{
@@ -20,18 +20,6 @@
 			$class = strtolower(get_class($this));
 			$requestString = "http://api.rovicorp.com/data/v1.1/song/" . $dataCluster . "?" . $class . $id . "=" . $search_value . "&duration=10080&inprogress=0&country=US&language=en&format=json&apikey=f52a3zyhzt6ur5zwrz87xfp3&sig=" . $sig;
 			return $requestString;
-		}
-		
-		public function displayItemData()
-		{
-			echo "<h3>$this->title</h3>";
-			echo "Genres: ";
-			$this->printArrayValues($this->genres);
-			$this->removeDuplicateAlbums($this->albums);
-			echo "</br>Appears in $this->views album";
-			if ($this->views > 1) echo "s";
-				echo ":</br>";
-			$this->displayAlbums();
 		}
 
 		public function parseJSON($json_decoded, $dataCluster)

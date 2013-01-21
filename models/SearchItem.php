@@ -8,7 +8,6 @@
 		public $dataClusters = array();
 		public $genres = array();
 		
-		abstract public function displayItemData();
 		abstract public function parseJSON($json_decoded, $dataCluster);
 		
 		public function getRequestString($search_value, $sig, $dataCluster, $id)
@@ -16,6 +15,22 @@
 			$class = strtolower(get_class($this));
 			$requestString = "http://api.rovicorp.com/data/v1.1/" . $class . "/" . $dataCluster . "?" . $class . $id . "=" . $search_value . "&duration=10080&inprogress=0&country=US&language=en&format=json&apikey=f52a3zyhzt6ur5zwrz87xfp3&sig=" . $sig;
 			return $requestString;
+		}
+		
+		public function loadView($response)
+		{					
+			switch ($response["code"])
+			{
+				case "200":
+					$view = "views\\" . get_class($this) . ".php";
+					break;
+					
+				case "404":
+					$view = "views\Error.php";
+					break;
+			}
+			
+			require $view;
 		}
 		
 		public function rectifyDate($date, $type)

@@ -1,0 +1,204 @@
+
+body 
+{
+	margin: 0;
+	font-family: Georgia;
+	font-size: 14px;
+	line-height: 1.5;
+	background: #909090 url('../images/background.png') fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	text-align: center;
+}
+
+#container
+{
+	margin: 8% auto 0 auto;
+	display: block;
+	width: 690px; 
+}
+
+p
+{
+	font-size: 30px;
+	font-style: italic;
+	font-weight: bold;
+	color: #161616;
+	margin: 2em 0 1em 0;
+	text-shadow: 0px 1px 0px #fff;
+	display: block;
+}
+
+
+/***** Search box + submit button *****/
+
+#searchBox
+{
+	background: #eaf8fc;
+	background-image: -moz-linear-gradient(#fff, #d4e8ec);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #d4e8ec),color-stop(1, #fff));	
+	-moz-border-radius: 35px;
+	border-radius: 35px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #c4d9df #a4c3ca #83afb7;            
+	width: 500px;
+	height: 35px;
+	padding: 10px;
+	margin: 50px auto 50px;
+	overflow: hidden; /* Clear floats */
+}
+
+#search
+{
+	float: left;
+	padding: 5px 9px;
+	height: 23px;
+	width: 380px;
+	border: 1px solid #a4c3ca;
+	font: normal 13px 'trebuchet MS', arial, helvetica;
+	background: #f1f1f1;
+	outline: none;	
+	-moz-border-radius: 50px 3px 3px 50px;
+ 	border-radius: 50px 3px 3px 50px;
+ 	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);            
+}
+
+#submit
+{	
+
+	float: left;
+	background: #6cbb6b;
+	background-image: -moz-linear-gradient(#95d788, #6cbb6b);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #6cbb6b),color-stop(1, #95d788));
+	
+	-moz-border-radius: 3px 50px 50px 3px;
+	border-radius: 3px 50px 50px 3px;
+	
+	border-width: 1px;
+	border-style: solid;
+	border-color: #7eba7c #578e57 #447d43;
+	
+	-moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;   		
+
+	height: 35px;
+	margin: 0 0 0 9px;
+    padding: 0;
+	width: 90px;
+	cursor: pointer;
+	font: bold 14px Arial, Helvetica;
+	color: #23441e;
+	outline: none;
+	
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+#submit:hover, #submit:focus
+{		
+	background: #95d788;
+	background-image: -moz-linear-gradient(#6cbb6b, #95d788);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #95d788),color-stop(1, #6cbb6b));
+}	
+
+#submit:active
+{		
+	background: #95d788;
+	outline: none;
+   
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+}
+
+#submit::-moz-focus-inner
+{
+    border: 0;  /* Small centering fix for Firefox */
+}
+
+
+/***** Radio buttons *****/
+
+#searchItems
+{
+	width: 600px;
+	margin: 0 auto;
+	border: none;
+	position: relative;
+	left: -40px;
+	margin-top: 50px;
+}
+
+input[type=radio]
+{
+	appearance: none;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	margin: 40px;
+}
+
+fieldset img
+{
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	opacity: 0.5;
+	background-color: #6cbb6b;
+	border: 3px solid black;
+	border-radius:9px;
+}
+
+fieldset img:hover
+{
+	opacity: 0.8;
+}
+
+.checked
+{
+	opacity: 1;
+}
+
+
+/*
+input[type=radio]
+{
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	background:#fff;
+	border-radius:3px;
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	border:3px solid #d5d5d5;
+	display:inline-block;
+	width:28px;
+	height:28px;
+	vertical-align:text-top;
+	padding: 0;
+	cursor: pointer;
+}
+
+input[type="radio"]:checked:after
+{
+	content:"\00a0";
+	display:block;
+	position:relative;
+	left:5px;
+	top:5px;
+	height:12px;
+	width:12px;
+	background:#a5a5a5;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+}
+
+label
+{
+	font-size: 20px;
+}
+*/
+
+

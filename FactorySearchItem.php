@@ -1,9 +1,9 @@
 <?php
 
-	require_once "SearchItem.php";
-	include_once "Name.php";
-	include_once "Track.php";
-	include_once "Album.php";
+	require_once "models/SearchItem.php";
+	include_once "models/Name.php";
+	include_once "models/Track.php";
+	include_once "models/Album.php";
 
 	class FactorySearchItem
 	{  

@@ -1,6 +1,6 @@
 <?php 
 
-	require_once "SearchItem.php";
+	require_once "models/SearchItem.php";
 	
 	class Album extends SearchItem
 	{
@@ -18,17 +18,6 @@
 				$this->releaseDate = parent::rectifyDate($releaseDate, "Album");
 		}
 
-		public function displayItemData()
-		{
-			echo "<h3>$this->title</h3>";
-			$this->displayArtists();
-			echo "</br>Release date: $this->releaseDate </br>";
-			echo "Genres: ";
-			$this->printArrayValues($this->genres);	
-			echo "</br>";
-			$this->displayTracks();
-		}
-		
 		public function parseJSON($json_decoded, $dataCluster)
 		{
 			switch ($dataCluster)
