@@ -109,7 +109,7 @@
 				{
 					echo "<a href=$urlPreFix$artist->id>$artist->name</a>";
 					if ($count < count($this->artists))
-						echo "</br> ";
+						echo ", ";
 					$count++;
 				}
 		}
