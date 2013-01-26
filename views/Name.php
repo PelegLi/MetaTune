@@ -2,25 +2,37 @@
 	<strong> <?php echo $this->name ?>	</strong>
 </div>
 
-<div id="genres">
-	<span class="genresLabel"><strong>Genres: </strong></span> <?php $this->printArrayValues($this->genres); ?>
+<div id="date">
+	<span class="label"> <?php if ($this->country != "") echo $this->country . ", "; echo $this->birth . " - " . $this->death; ?> </span>
 </div>
 
-<div id="date">
-	<span> <?php echo $this->birth . " - " . $this->death; ?> </span>
+<div id="genres">
+	<p><span class="label"><strong>Genres: </strong></span> <?php $this->printArrayValues($this->genres); ?></p>
 </div>
 
 <?php if ($this->headline_bio != "") :?>
 	<div id="headlineBio">
-		<span class="headlineBioLabel"><strong>In a sentence: </strong></span> <?php echo $this->headline_bio; ?> 
+		<p><span class="label"><strong>In a sentence: </strong></span> <?php echo $this->headline_bio; ?></p> 
 	</div>
 <?php endif;?>
 
-<div id="discography">
-	<span class="discographyLabel"><strong>Discography:</strong></span>
-	<div class="discographyList">
-		<?php $this->displayAlbums(); ?>
-	</div>
+<div id="themes">
+	<p><span class="label"><strong>Feels like: </strong></span> <?php $this->printArrayValues($this->themes); ?></p>
 </div>
 
+<div id="musicBio">
+	<p><span class="label"><strong>Biography: </strong></span> <?php echo $this->musicBio; ?></p>
+</div>
 
+<div id="discography">
+	<span class="label"><strong>Discography: </strong></span>
+	<div class="discographyList">
+		<ul>
+			<?php  $urlPreFix = "allmusicapi.php?searchItems=Album&idSearch=id&search_value=";
+				foreach ($this->albums as $album)
+					if (isset($album->id) && isset($album->title) && $album->status == "main"): ?>
+							<li><a href=<?php echo $urlPreFix . $album->id; ?>><?php echo $album->title; ?></a> - <?php echo $album->releaseDate; ?></li>
+				  	<?php endif; ?>
+		</ul>
+	</div>
+</div>

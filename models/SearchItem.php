@@ -13,7 +13,7 @@
 		public function getRequestString($search_value, $sig, $dataCluster, $id)
 		{
 			$class = strtolower(get_class($this));
-			$requestString = "http://api.rovicorp.com/data/v1.1/" . $class . "/" . $dataCluster . "?" . $class . $id . "=" . $search_value . "&duration=10080&inprogress=0&country=US&language=en&format=json&apikey=f52a3zyhzt6ur5zwrz87xfp3&sig=" . $sig;
+			$requestString = "http://api.rovicorp.com/data/v1.1/" . $class . "/" . $dataCluster . "?" . $class . $id . "=" . $search_value . "&duration=10080&inprogress=0&country=US&language=en&format=json&apikey=" . SigGen::getAPIKey() . "&sig=" . $sig;
 			return $requestString;
 		}
 		
@@ -67,39 +67,26 @@
 			}
 		}
 		
-		// TODO:  join displayAlbums, tracks, artists
-		
-		public function displayAlbums()
+		public function parseRoviLinks($text)
 		{
-			$count = 1;
-			$urlPreFix = "allmusicapi.php?searchItems=Album&idSearch=id&search_value=";
-			foreach ($this->albums as $album)
-				if (isset($album->id) && isset($album->title) && isset($album->releaseDate))
-				{
-					echo "<a href=$urlPreFix$album->id>$album->title</a>";
-					if ($album->releaseDate)
-						echo " - $album->releaseDate";
-					if ($count < count($this->albums))
-						echo "</br> ";
-					$count++;
-				}
-		}	
-		
-		public function displayTracks()
-		{
-			echo "</br>";
-			$count = 1;
-			$urlPreFix = "allmusicapi.php?searchItems=Track&idSearch=id&search_value=";
-			foreach ($this->tracks as $track)
-				if (isset($track->id) && isset($track->title))
-				{
-					echo "<a href=$urlPreFix$track->id>$track->title</a>";
-					if ($count < count($this->tracks))
-						echo "</br> ";
-					$count++;
-				}
+			$pattern = array("/\[/",
+							 "/\]/",
+							 "/roviLink=/",
+							 "/roviLink[^=]/",
+							 "/MN[0-9]{10}/",
+							 "/MW[0-9]{10}/");
+			
+			$replacement = array("<",
+								 ">",
+								 "a href=",
+								 "a>",
+								 "allmusicapi.php?searchItems=Name&idSearch=id&search_value=$0",
+								 "allmusicapi.php?searchItems=Album&idSearch=id&search_value=$0");
+			
+			$text = preg_replace($pattern, $replacement, $text);
+			return $text;
 		}
-		
+
 		public function displayArtists()
 		{
 			$count = 1;

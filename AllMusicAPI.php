@@ -57,9 +57,7 @@
 					
 					/* TODO:
 					 * 
-					 * Display only artists' official albums on the artist view.
-					 * Invert discography from old to new.
-					 * 
+					 * Sanitize user search input.
 					 */
 	
 				?>
