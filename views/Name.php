@@ -1,4 +1,5 @@
 <div id="title">
+	<img src="images/name.png">
 	<strong> <?php echo $this->name ?>	</strong>
 </div>
 
@@ -21,18 +22,30 @@
 </div>
 
 <div id="musicBio">
-	<p><span class="label"><strong>Biography: </strong></span> <?php echo $this->musicBio; ?></p>
+	<span class="label"><strong>Biography: </strong></span>
+	<div class="biography">
+		<p>
+			<?php echo $this->musicBio; ?>
+		</p>
+	</div>
+	<div id="collapsibleLabel" onclick="showHiddenBiography()">more &raquo</div>
+	<div id="collapsibleText"></div>
 </div>
 
 <div id="discography">
-	<span class="label"><strong>Discography: </strong></span>
-	<div class="discographyList">
-		<ul>
-			<?php  $urlPreFix = "allmusicapi.php?searchItems=Album&idSearch=id&search_value=";
-				foreach ($this->albums as $album)
-					if (isset($album->id) && isset($album->title) && $album->status == "main"): ?>
-							<li><a href=<?php echo $urlPreFix . $album->id; ?>><?php echo $album->title; ?></a> - <?php echo $album->releaseDate; ?></li>
-				  	<?php endif; ?>
-		</ul>
-	</div>
+	<p>
+		<span class="label"><strong>Discography: </strong></span>
+		<div class="discographyList">
+			<ol>
+				<?php  $urlPreFix = "allmusicapi.php?searchItems=Album&idSearch=id&search_value=";
+					foreach ($this->albums as $album)
+						if (isset($album->id) && isset($album->title) && $album->status == "main"): ?>
+								<li>
+									<img src="images/album.png" alt="album">
+									<a href=<?php echo $urlPreFix . $album->id; ?>><?php echo $album->title; ?></a> - <?php echo $album->releaseDate; ?>
+								</li>
+						<?php endif; ?>
+			</ol>
+		</div>
+	</p>
 </div>

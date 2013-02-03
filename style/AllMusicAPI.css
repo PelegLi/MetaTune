@@ -8,28 +8,23 @@ body
 	margin: 0;
 	font-family: Georgia;
 	font-size: 14px;
+	color: #2d3f0f;
 	line-height: 1.5;	
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
 	text-align: center;
-	background-image: -webkit-radial-gradient(circle, #fff, #fefefe);
+	background: #edbc60;
 }
 
 #container
 {
 	margin: 20px auto 20px auto;
 	display: block;
-	width: 790px; 
-	background: #909090 url('../images/background.png') fixed;
-	border: 8px solid black;
-	background-image: -webkit-linear-gradient(bottom, #95d788, #fff);
+	width: 950px; 
+	border: 8px solid #592319;
+	background: #fff;
 	border-radius: 9px;
-}
-
-#searchSection
-{
-	
 }
 
 #content
@@ -46,14 +41,14 @@ body
 
 #searchBox
 {
-	background: #eaf8fc;
-	background-image: -moz-linear-gradient(#fff, #d4e8ec);
-	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #d4e8ec),color-stop(1, #fff));	
+	background: #d35a11;
+	background-image: -moz-linear-gradient(#aa3217, #d35a11);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #d35a11),color-stop(1, #aa3217));	
 	-moz-border-radius: 35px;
 	border-radius: 35px;
 	border-width: 1px;
 	border-style: solid;
-	border-color: #c4d9df #a4c3ca #83afb7;            
+	border-color: #592319;            
 	width: 500px;
 	height: 35px;
 	padding: 10px;
@@ -67,23 +62,29 @@ body
 	padding: 5px 9px;
 	height: 23px;
 	width: 380px;
-	border: 1px solid #a4c3ca;
-	font: normal 13px 'trebuchet MS', arial, helvetica;
-	background: #f1f1f1;
+	border: 1px solid #aa3217;
+	background: #edbc60;
 	outline: none;	
+	color: #592319;
+	font-size: 1.4em;
+	text-indent: 0.5em;
+	letter-spacing: 0.1em;
+	font-family: Georgia;
+	font-weight: 600;
+	
 	-moz-border-radius: 50px 3px 3px 50px;
  	border-radius: 50px 3px 3px 50px;
- 	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
-	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);            
+ 	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(#aa3217, #aa3217, #aa3217, 1);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(#aa3217, #aa3217, #aa3217, 1);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(#aa3217, #aa3217, #aa3217, 1);            
 }
 
 #submit
 {	
 	float: left;
 	background: #6cbb6b;
-	background-image: -moz-linear-gradient(#95d788, #6cbb6b);
-	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #6cbb6b),color-stop(1, #95d788));
+	background-image: -moz-linear-gradient(#edbc60, #edbc60);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #edbc60),color-stop(1, #edbc60));
 	
 	-moz-border-radius: 3px 50px 50px 3px;
 	border-radius: 3px 50px 50px 3px;
@@ -104,15 +105,16 @@ body
 	font: bold 14px Arial, Helvetica;
 	color: #23441e;
 	outline: none;
+	font-size: 1.2em;
 	
 	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 }
 
 #submit:hover, #submit:focus
 {		
-	background: #95d788;
-	background-image: -moz-linear-gradient(#6cbb6b, #95d788);
-	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #95d788),color-stop(1, #6cbb6b));
+	background: #d35a11;
+	background-image: -moz-linear-gradient(#d35a11, #d35a11);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #d35a11),color-stop(1, #d35a11));
 }	
 
 #submit:active
@@ -159,14 +161,25 @@ fieldset img
 	height: 60px;
 	cursor: pointer;
 	opacity: 0.5;
-	background-color: #6cbb6b;
+	background-color: #edbc60;
 	border: 3px solid black;
 	border-radius:9px;
+	-webkit-transition: all 100ms linear;
+    -moz-transition: all 100ms linear;
+    -o-transition: all 100ms linear;
+    transition: all 100ms linear;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
-fieldset img:hover
+#searchItems img:hover
 {
-	background-color: #95d788;
+	-webkit-transform: scale(1.2) translateZ(0);
+    -moz-transform: scale(1.2) translateZ(0);
+    -o-transform: scale(1.2) translateZ(0);
+    transform: scale(1.2) translateZ(0);
 }
 
 .checked
@@ -179,9 +192,23 @@ fieldset img:hover
 *      views      *
 ******************/
 
+div
+{
+	position: relative;
+}
+
 #title
 {
 	font-size: 1.8em;
+}
+
+#title img
+{
+	width: 1.2em;
+	height: 1.2em;
+	position: relative;
+	left: -0.3em;
+	top: 0.2em;
 }
 
 .label
@@ -189,3 +216,92 @@ fieldset img:hover
 	font-size: 1.2em;
 }
 
+.discographyList ul li
+{
+	display: inline;
+}
+
+.discographyList ol, ul
+{
+	list-style: none;
+	color: #2d3f0f;
+}
+
+.discographyList ol li, ul li
+{
+	text-decoration: none;
+	padding: 2px;
+}
+
+.discographyList ol li a:hover, ul li a:hover
+{
+	padding: 2px;
+	color: black;
+	font-style: oblique;
+}
+
+.discographyList ol li img, ul li img
+{
+	width: 1em;
+	height: 1em;
+	position: relative;
+	left: -0.3em;
+	top: 0.2em;
+}
+
+.biography 
+{
+	color: black;
+}
+
+.biography  a, .discographyList ol li a, ul li a
+{
+	text-decoration: none;
+	color: #aa3217;
+}
+
+.biography  a:hover
+{
+	color: #d35a11;
+}
+
+#collapsibleText
+{
+    position: absolute;
+    z-index: 2;
+    right: 0;
+	bottom: 0;
+	left: 0;
+    height: 8em;
+    background: url(data:image/svg+xml;base64,alotofcodehere);
+    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 70%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(70%,rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 20%,rgba(255,255,255,1) 70%);
+    background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+    background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+}
+
+#collapsibleLabel
+{
+	position: absolute;
+	bottom: 0;
+	left: 20em;
+	width: 100%; 
+	z-index: 3;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
+	color: #aa3217;
+}
+
+#collapsibleLabel:hover
+{
+	color: #d35a11;
+}
+
+#musicBio
+{
+	height: 200px;
+	overflow: hidden;
+}

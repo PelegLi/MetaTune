@@ -1,11 +1,23 @@
 <div id="title">
+	<img src="images/album.png">
 	<strong> <?php echo $this->title ?>	</strong>
 </div>
 
 <div id="artists">
-	<span class="label"><strong>By: </strong></span> <?php $this->displayArtists(); ?>
+	<div class="discographyList">
+		<ul>
+			<?php  $urlPreFix = "allmusicapi.php?searchItems=Name&idSearch=id&search_value=";
+				foreach ($this->artists as $artist)
+					if (isset($artist->id) && isset($artist->name)): ?>
+						<li>
+							<img src="images/name.png">
+							<a href=<?php echo $urlPreFix . $artist->id; ?>><?php echo $artist->name; ?></a>
+						</li>
+			  		<?php endif; ?>
+		</ul>
+	</div>
 </div>
-
+		
 <div id="date">
 	<span class="label"><strong>Release date: </strong> <?php echo $this->releaseDate; ?> </span>
 </div>
@@ -21,14 +33,17 @@
 <?php endif;?>
 
 <div id="discography">
-	<span class="label"><strong>Discography: </strong></span>
+	<span class="label"><strong>Track list: </strong></span>
 	<div class="discographyList">
-		<ul>
+		<ol>
 			<?php  $urlPreFix = "allmusicapi.php?searchItems=Track&idSearch=id&search_value=";
 				foreach ($this->tracks as $track)
 					if (isset($track->id) && isset($track->title)): ?>
-						<li><a href=<?php echo $urlPreFix . $track->id; ?>><?php echo $track->title; ?></a></li>
+						<li>
+							<img src="images/track.png">
+							<a href=<?php echo $urlPreFix . $track->id; ?>><?php echo $track->title; ?></a>
+						</li>
 			  		<?php endif; ?>
-		</ul>
+		</ol>
 	</div>
 </div>

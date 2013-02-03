@@ -11,9 +11,10 @@
 	<head>
 		
 		<meta charset="utf-8">
-		<link rel="shortcut icon" href="images/tigerrabbit.png" />
+		<link rel="shortcut icon" href="images/album.png" />
 		<link rel="Stylesheet" href="style/AllMusicAPI.css"/>
 		<script src="scripts/AllMusicAPI.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
 		<title>MetaTune<?php setPageTitle(); ?></title>
 				
 	</head>
@@ -58,6 +59,8 @@
 					/* TODO:
 					 * 
 					 * Sanitize user search input.
+					 * Organize front end by headers.
+					 * 
 					 */
 	
 				?>

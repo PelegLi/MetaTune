@@ -86,20 +86,6 @@
 			$text = preg_replace($pattern, $replacement, $text);
 			return $text;
 		}
-
-		public function displayArtists()
-		{
-			$count = 1;
-			$urlPreFix = "allmusicapi.php?searchItems=Name&idSearch=id&search_value=";
-			foreach ($this->artists as $artist)
-				if (isset($artist->id) && isset($artist->name))
-				{
-					echo "<a href=$urlPreFix$artist->id>$artist->name</a>";
-					if ($count < count($this->artists))
-						echo ", ";
-					$count++;
-				}
-		}
 	}
 
 ?>

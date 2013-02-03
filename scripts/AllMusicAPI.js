@@ -63,3 +63,15 @@ function defineSelectedSearchItem()
 	var currentItem = document.getElementById(item + "Image");
 	currentItem.className = "checked";
 }
+
+function showHiddenBiography()
+{
+	$('#musicBio').animate({
+		height: '100%'
+	}, 200);
+
+	var collapsibleText = document.getElementById("collapsibleText");
+	collapsibleText.style.height = "0px";
+	var collapsibleText = document.getElementById("collapsibleLabel");
+	collapsibleLabel.style.display = "none";
+}

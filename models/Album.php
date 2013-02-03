@@ -27,7 +27,9 @@
 		
 		public function defineAlbumStatus()
 		{			
-			if ($this->type == "Album" && (!isset($this->flags) || ((in_array("Digitally Remastered", $this->flags) || (in_array("Gold", $this->flags)) || (in_array("Soundtrack", $this->flags))) && !(in_array("Compilation", $this->flags)))))
+			if ($this->type == "Album" && (!isset($this->flags) || 
+				(((in_array("Digitally Remastered", $this->flags)) || (in_array("Gold", $this->flags)) || (in_array("Soundtrack", $this->flags)) || (in_array("Limited Edition", $this->flags))) && 
+				!((in_array("Compilation", $this->flags)) || (in_array("Video", $this->flags))))))
 					$this->status = "main";
 				else
 					$this->status = "notmain";
