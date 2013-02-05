@@ -61,7 +61,7 @@
 					if (isset($json_decoded['tracks']))
 						foreach ($json_decoded['tracks'] as $track)
 						{
-							$newTrack = new Track($track['ids']['trackId'], $track['title']);
+							$newTrack = new Track($track['ids']['trackId'], $track['title'], $track['duration']);
 							$this->tracks[] = $newTrack;
 						}
 					break;

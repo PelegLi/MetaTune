@@ -37,7 +37,7 @@
 		<span class="label"><strong>Discography: </strong></span>
 		<div class="discographyList">
 			<ol>
-				<?php  $urlPreFix = "allmusicapi.php?searchItems=Album&idSearch=id&search_value=";
+				<?php  $urlPreFix = "MetaTune.php?searchItems=Album&idSearch=id&search_value=";
 					foreach ($this->albums as $album)
 						if (isset($album->id) && isset($album->title) && $album->status == "main"): ?>
 								<li>

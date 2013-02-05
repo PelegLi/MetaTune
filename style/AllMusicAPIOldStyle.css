@@ -1,0 +1,325 @@
+
+/********************
+*      General      *
+********************/
+
+body 
+{
+	margin: 0;
+	font-family: Georgia;
+	font-size: 14px;
+	color: #26373e;
+	line-height: 1.5;	
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	text-align: center;
+	background: #e7e495;
+}
+
+#container
+{
+	margin: 20px auto 20px auto;
+	display: block;
+	width: 950px; 
+	border: 8px solid #26373e;
+	background: #fff;
+	border-radius: 9px;
+}
+
+#content
+{
+	margin: 40px;;
+	width: 90%;
+	text-align: left;
+}
+
+#banner
+{
+	margin-left: -600px;
+	margin-top: 20px;
+}
+
+#banner img
+{
+	width: 185px;
+	height: 43px;;
+}
+
+
+/***************************************
+*      Search box + submit button      *
+***************************************/
+
+#searchBox
+{
+	background: #3e627c;
+	background-image: -moz-linear-gradient(#26373e, #3e627c);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #26373e),color-stop(1, #3e627c));	
+	-moz-border-radius: 35px;
+	border-radius: 35px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #26373e;            
+	width: 500px;
+	height: 35px;
+	padding: 10px;
+	margin: 20px auto 50px;
+	overflow: hidden; /* Clear floats */
+}
+
+#search
+{
+	float: left;
+	padding: 5px 9px;
+	height: 23px;
+	width: 380px;
+	border: 1px solid #3e627c;
+	background: #fff;
+	outline: none;	
+	color: #26373e;
+	font-size: 1.4em;
+	text-indent: 0.5em;
+	letter-spacing: 0.1em;
+	font-family: Georgia;
+	font-weight: 600;
+	
+	-moz-border-radius: 50px 3px 3px 50px;
+ 	border-radius: 50px 3px 3px 50px;
+ 	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(#3e627c, #26373e, #aa3217, 1);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(#3e627c, #26373e, #aa3217, 1);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(#3e627c, #26373e, #aa3217, 1);            
+}
+
+#search:active, #search:focus
+{
+	background: #fff9e3;
+}
+
+#submit
+{	
+	float: left;
+	background: #e7e495;
+	background-image: -moz-linear-gradient(#cfa924, #e7e495);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #cfa924),color-stop(1, #e7e495));
+	
+	-moz-border-radius: 3px 50px 50px 3px;
+	border-radius: 3px 50px 50px 3px;
+	
+	border-width: 1px;
+	border-style: solid;
+	border-color: #cfa924 #cfa924 #cfa924;
+	
+	-moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;   		
+
+	height: 35px;
+	margin: 0 0 0 9px;
+    padding: 0;
+	width: 90px;
+	cursor: pointer;
+	font: bold 14px Arial, Helvetica;
+	color: #26373e;
+	outline: none;
+	font-size: 1.2em;
+	
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+#submit:hover, #submit:focus
+{		
+	background: #cfa924;
+	background-image: -moz-linear-gradient(#e7e495, #cfa924);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #e7e495),color-stop(1, #cfa924));
+}	
+
+#submit:active
+{		
+	background: #cfa924;
+	outline: none;
+   
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+}
+
+#submit::-moz-focus-inner
+{
+    border: 0;  /* Small centering fix for Firefox */
+}
+
+
+/************************
+*     Radio buttons     *
+************************/
+
+#searchItems
+{
+	width: 600px;
+	margin: 0 auto;
+	border: none;
+	position: relative;
+	left: -40px;
+	margin-top: 10px;
+}
+
+input[type=radio]
+{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	margin: 40px;
+}
+
+fieldset img
+{
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	opacity: 0.5;
+	background-color: #e7e495;
+	border: 3px solid #26373e;
+	border-radius:9px;
+	-webkit-transition: all 100ms linear;
+    -moz-transition: all 100ms linear;
+    -o-transition: all 100ms linear;
+    transition: all 100ms linear;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+#searchItems img:hover
+{
+	-webkit-transform: scale(1.2) translateZ(0);
+    -moz-transform: scale(1.2) translateZ(0);
+    -o-transform: scale(1.2) translateZ(0);
+    transform: scale(1.2) translateZ(0);
+}
+
+.checked
+{
+	opacity: 1;
+}
+
+
+/******************
+*      views      *
+******************/
+
+div
+{
+	position: relative;
+}
+
+#title
+{
+	font-size: 1.8em;
+}
+
+#title img
+{
+	width: 1.2em;
+	height: 1.2em;
+	position: relative;
+	left: -0.3em;
+	top: 0.2em;
+}
+
+.label
+{
+	font-size: 1.2em;
+}
+
+.discographyList ul li
+{
+	display: inline;
+}
+
+.discographyList ol, ul
+{
+	list-style: none;
+	color: #3e627c;
+}
+
+.discographyList ol li, ul li
+{
+	color: #26373e;
+	text-decoration: none;
+	padding: 2px;
+}
+
+.discographyList ol li a:hover, ul li a:hover
+{
+	padding: 2px;
+	color: #26373e;
+	font-style: oblique;
+}
+
+.discographyList ol li img, ul li img
+{
+	width: 1em;
+	height: 1em;
+	position: relative;
+	left: -0.3em;
+	top: 0.2em;
+}
+
+.biography 
+{
+	color: 26373e;
+}
+
+.biography  a, .discographyList ol li a, ul li a
+{
+	text-decoration: none;
+	color: #3e627c;
+}
+
+.biography  a:hover
+{
+	color: #000;
+}
+
+#collapsibleText
+{
+    position: absolute;
+    z-index: 2;
+    right: 0;
+	bottom: 0;
+	left: 0;
+    height: 8em;
+    background: url(data:image/svg+xml;base64,alotofcodehere);
+    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 70%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(70%,rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 20%,rgba(255,255,255,1) 70%);
+    background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+    background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+}
+
+#collapsibleLabel
+{
+	position: absolute;
+	bottom: 0;
+	left: 20em;
+	width: 100%; 
+	z-index: 3;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
+	color: #aa3217;
+}
+
+#collapsibleLabel:hover
+{
+	color: #d35a11;
+}
+
+#musicBio
+{
+	height: 200px;
+	overflow: hidden;
+}

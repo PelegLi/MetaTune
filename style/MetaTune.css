@@ -8,13 +8,13 @@ body
 	margin: 0;
 	font-family: Georgia;
 	font-size: 14px;
-	color: #2d3f0f;
+	color: #26373e;
 	line-height: 1.5;	
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
 	text-align: center;
-	background: #edbc60;
+	background: #fff;
 }
 
 #container
@@ -22,9 +22,11 @@ body
 	margin: 20px auto 20px auto;
 	display: block;
 	width: 950px; 
-	border: 8px solid #592319;
-	background: #fff;
+	min-width: 900px;
+	background: #e7e495;
 	border-radius: 9px;
+	box-shadow: 16px 18px 20px -7px #888, -16px 18px 20px -7px #888;
+	
 }
 
 #content
@@ -34,26 +36,69 @@ body
 	text-align: left;
 }
 
+#banner
+{
+	margin-top: 20px;
+	background: #26373e;
+	border-radius: 9px 9px 0px 0px;
+	padding: 1px;
+}
+
+#bannerLogo
+{
+	width: 285px;
+	height: 66px;
+	float: left;
+	margin: 25px 40px;
+}
+
+#footer
+{
+	height: 120px;
+	border-radius: 9px;
+	background-image: -moz-linear-gradient(#e7e495, #cfa924);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #cfa924),color-stop(1, #e7e495));
+	text-align: bottom;
+	position: relative;
+}
+
+#footerContent
+{
+	position: relative;
+	bottom: -80px;
+}
+
+#footerContent a
+{
+	text-decoration: none;
+	color: #26373e;
+}
 
 /***************************************
 *      Search box + submit button      *
 ***************************************/
 
+#searchSection
+{
+	margin-bottom: 20px;
+}
+
 #searchBox
 {
-	background: #d35a11;
-	background-image: -moz-linear-gradient(#aa3217, #d35a11);
-	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #d35a11),color-stop(1, #aa3217));	
+	background: #3e627c;
+	background-image: -moz-linear-gradient(#26373e, #3e627c);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0%, #26373e),color-stop(5%, #3e627c),color-stop(95%, #3e627c),color-stop(100%, #26373e));
 	-moz-border-radius: 35px;
 	border-radius: 35px;
 	border-width: 1px;
 	border-style: solid;
-	border-color: #592319;            
+	border-color: #26373e;            
 	width: 500px;
 	height: 35px;
 	padding: 10px;
-	margin: 20px auto 50px;
-	overflow: hidden; /* Clear floats */
+	margin: auto;
+	position: relative;
+	overflow: hidden;
 }
 
 #search
@@ -62,10 +107,10 @@ body
 	padding: 5px 9px;
 	height: 23px;
 	width: 380px;
-	border: 1px solid #aa3217;
-	background: #edbc60;
+	border: 1px solid #3e627c;
+	background: #fff;
 	outline: none;	
-	color: #592319;
+	color: #26373e;
 	font-size: 1.4em;
 	text-indent: 0.5em;
 	letter-spacing: 0.1em;
@@ -74,24 +119,29 @@ body
 	
 	-moz-border-radius: 50px 3px 3px 50px;
  	border-radius: 50px 3px 3px 50px;
- 	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(#aa3217, #aa3217, #aa3217, 1);
-	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(#aa3217, #aa3217, #aa3217, 1);
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(#aa3217, #aa3217, #aa3217, 1);            
+ 	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(#3e627c, #26373e, #aa3217, 1);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(#3e627c, #26373e, #aa3217, 1);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(#3e627c, #26373e, #aa3217, 1);            
+}
+
+#search:active, #search:focus
+{
+	background: #fff9e3;
 }
 
 #submit
 {	
 	float: left;
-	background: #6cbb6b;
-	background-image: -moz-linear-gradient(#edbc60, #edbc60);
-	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #edbc60),color-stop(1, #edbc60));
+	background: #e7e495;
+	background-image: -moz-linear-gradient(#cfa924, #e7e495);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #cfa924),color-stop(1, #e7e495));
 	
 	-moz-border-radius: 3px 50px 50px 3px;
 	border-radius: 3px 50px 50px 3px;
 	
 	border-width: 1px;
 	border-style: solid;
-	border-color: #7eba7c #578e57 #447d43;
+	border-color: #cfa924 #cfa924 #cfa924;
 	
 	-moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
 	-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
@@ -103,7 +153,7 @@ body
 	width: 90px;
 	cursor: pointer;
 	font: bold 14px Arial, Helvetica;
-	color: #23441e;
+	color: #26373e;
 	outline: none;
 	font-size: 1.2em;
 	
@@ -112,14 +162,14 @@ body
 
 #submit:hover, #submit:focus
 {		
-	background: #d35a11;
-	background-image: -moz-linear-gradient(#d35a11, #d35a11);
-	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #d35a11),color-stop(1, #d35a11));
+	background: #cfa924;
+	background-image: -moz-linear-gradient(#e7e495, #cfa924);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #e7e495),color-stop(1, #cfa924));
 }	
 
 #submit:active
 {		
-	background: #95d788;
+	background: #cfa924;
 	outline: none;
    
 	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
@@ -139,30 +189,29 @@ body
 
 #searchItems
 {
-	width: 600px;
 	margin: 0 auto;
 	border: none;
 	position: relative;
-	left: -40px;
-	margin-top: 50px;
+	margin-top: 10px;
 }
 
 input[type=radio]
 {
 	appearance: none;
+	display: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	margin: 40px;
 }
 
 fieldset img
 {
+	margin: 10px 20px 0px 20px;
 	width: 60px;
 	height: 60px;
 	cursor: pointer;
 	opacity: 0.5;
-	background-color: #edbc60;
-	border: 3px solid black;
+	background-color: #e7e495;
+	border: 3px solid #3e627c;
 	border-radius:9px;
 	-webkit-transition: all 100ms linear;
     -moz-transition: all 100ms linear;
@@ -211,6 +260,13 @@ div
 	top: 0.2em;
 }
 
+#welcome a
+{
+	color: #3e627c;
+	text-decoration: none;
+	padding: 2px;
+}
+
 .label
 {
 	font-size: 1.2em;
@@ -224,19 +280,20 @@ div
 .discographyList ol, ul
 {
 	list-style: none;
-	color: #2d3f0f;
+	color: #3e627c;
 }
 
 .discographyList ol li, ul li
 {
+	color: #26373e;
 	text-decoration: none;
 	padding: 2px;
 }
 
-.discographyList ol li a:hover, ul li a:hover
+.discographyList ol li a:hover, ul li a:hover, #welcome a:hover
 {
 	padding: 2px;
-	color: black;
+	color: #26373e;
 	font-style: oblique;
 }
 
@@ -251,18 +308,18 @@ div
 
 .biography 
 {
-	color: black;
+	color: 26373e;
 }
 
 .biography  a, .discographyList ol li a, ul li a
 {
 	text-decoration: none;
-	color: #aa3217;
+	color: #3e627c;
 }
 
 .biography  a:hover
 {
-	color: #d35a11;
+	color: #000;
 }
 
 #collapsibleText
@@ -274,9 +331,9 @@ div
 	left: 0;
     height: 8em;
     background: url(data:image/svg+xml;base64,alotofcodehere);
-    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 70%);
+    background: -moz-linear-gradient(top,  rgba(231,228,149,0) 20%,rgba(231,228,149,1) 70%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(70%,rgba(255,255,255,1)));
-    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 20%,rgba(255,255,255,1) 70%);
+    background: -webkit-linear-gradient(top,  rgba(231,228,149,0) 20%,rgba(231,228,149,1) 70%);
     background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
     background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
     background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
@@ -292,12 +349,12 @@ div
 	text-align: center;
 	cursor: pointer;
 	text-decoration: none;
-	color: #aa3217;
+	color: #3e627c;
 }
 
 #collapsibleLabel:hover
 {
-	color: #d35a11;
+	color: #26373e;
 }
 
 #musicBio

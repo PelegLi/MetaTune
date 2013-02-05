@@ -75,3 +75,4 @@ function showHiddenBiography()
 	var collapsibleText = document.getElementById("collapsibleLabel");
 	collapsibleLabel.style.display = "none";
 }
+

@@ -80,8 +80,8 @@
 								 ">",
 								 "a href=",
 								 "a>",
-								 "allmusicapi.php?searchItems=Name&idSearch=id&search_value=$0",
-								 "allmusicapi.php?searchItems=Album&idSearch=id&search_value=$0");
+								 "MetaTune.php?searchItems=Name&idSearch=id&search_value=$0",
+								 "MetaTune.php?searchItems=Album&idSearch=id&search_value=$0");
 			
 			$text = preg_replace($pattern, $replacement, $text);
 			return $text;

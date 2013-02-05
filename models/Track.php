@@ -6,13 +6,15 @@
 	{
 		public $title;
 		public $views;
+		public $duration;
 		public $albums = array();
 		public $dataClusters = array("info", "appearances");
 		
-		public function __construct($id = null, $title = null)
+		public function __construct($id = null, $title = null, $duration = null)
 		{
 			$this->id = $id;
 			$this->title = $title;
+			$this->duration = $this->parseTrackDuration($duration);
 		}
 		
 		public function getRequestString($search_value, $sig, $dataCluster, $id)
@@ -65,6 +67,14 @@
 						$this->views -= 1;
 					}
 			}
+		}
+		
+		public function parseTrackDuration($duration)
+		{
+			$minutes = floor($duration / 60);
+			$seconds = $duration % 60;
+			$seconds = $seconds <= 9 ? "0" . $seconds : $seconds;
+			return $minutes . ":" . $seconds;
 		}
 	}
 

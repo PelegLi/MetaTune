@@ -6,7 +6,7 @@
 <div id="artists">
 	<div class="discographyList">
 		<ul>
-			<?php  $urlPreFix = "allmusicapi.php?searchItems=Name&idSearch=id&search_value=";
+			<?php  $urlPreFix = "MetaTune.php?searchItems=Name&idSearch=id&search_value=";
 				foreach ($this->artists as $artist)
 					if (isset($artist->id) && isset($artist->name)): ?>
 						<li>
@@ -36,12 +36,12 @@
 	<span class="label"><strong>Track list: </strong></span>
 	<div class="discographyList">
 		<ol>
-			<?php  $urlPreFix = "allmusicapi.php?searchItems=Track&idSearch=id&search_value=";
+			<?php  $urlPreFix = "MetaTune.php?searchItems=Track&idSearch=id&search_value=";
 				foreach ($this->tracks as $track)
 					if (isset($track->id) && isset($track->title)): ?>
 						<li>
 							<img src="images/track.png">
-							<a href=<?php echo $urlPreFix . $track->id; ?>><?php echo $track->title; ?></a>
+							<a href=<?php echo $urlPreFix . $track->id; ?>><?php echo $track->title; ?></a> &nbsp&nbsp&nbsp (<?php echo $track->duration; ?>)
 						</li>
 			  		<?php endif; ?>
 		</ol>
