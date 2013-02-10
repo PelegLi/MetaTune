@@ -7,14 +7,16 @@
 		public $title;
 		public $views;
 		public $duration;
+		public $number;
 		public $albums = array();
 		public $dataClusters = array("info", "appearances");
 		
-		public function __construct($id = null, $title = null, $duration = null)
+		public function __construct($id = null, $title = null, $duration = null, $number = null)
 		{
 			$this->id = $id;
 			$this->title = $title;
 			$this->duration = $this->parseTrackDuration($duration);
+			$this->number = $number > 9 ? $number : "0" . $number;
 		}
 		
 		public function getRequestString($search_value, $sig, $dataCluster, $id)
@@ -77,5 +79,3 @@
 			return $minutes . ":" . $seconds;
 		}
 	}
-
-?>

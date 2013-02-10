@@ -7,9 +7,11 @@
 	<span class="label"> <?php if ($this->country != "") echo $this->country . ", "; echo $this->birth . " - " . $this->death; ?> </span>
 </div>
 
-<div id="genres">
-	<p><span class="label"><strong>Genres: </strong></span> <?php $this->printArrayValues($this->genres); ?></p>
-</div>
+<?php if ($this->genres != null) :?>
+	<div id="genres">
+		<p><span class="label"><strong>Genres: </strong></span> <?php $this->printArrayValues($this->genres); ?></p>
+	</div>
+<?php endif;?>
 
 <?php if ($this->headline_bio != "") :?>
 	<div id="headlineBio">
@@ -17,20 +19,24 @@
 	</div>
 <?php endif;?>
 
-<div id="themes">
-	<p><span class="label"><strong>Feels like: </strong></span> <?php $this->printArrayValues($this->themes); ?></p>
-</div>
-
-<div id="musicBio">
-	<span class="label"><strong>Biography: </strong></span>
-	<div class="biography">
-		<p>
-			<?php echo $this->musicBio; ?>
-		</p>
+<?php if ($this->themes != null) :?>
+	<div id="themes">
+		<p><span class="label"><strong>Feels like: </strong></span> <?php $this->printArrayValues($this->themes); ?></p>
 	</div>
-	<div id="collapsibleLabel" onclick="showHiddenBiography()">more &raquo</div>
-	<div id="collapsibleText"></div>
-</div>
+<?php endif;?>
+
+<?php if ($this->musicBio != "") :?>
+	<div id="musicBio">
+		<span class="label"><strong>Biography: </strong></span>
+		<div class="biography">
+			<p>
+				<?php echo $this->musicBio; ?>
+			</p>
+		</div>
+		<div id="collapsibleLabel" onclick="showHiddenBiography()">more &raquo</div>
+		<div id="collapsibleText"></div>
+	</div>
+<?php endif;?>
 
 <div id="discography">
 	<p>

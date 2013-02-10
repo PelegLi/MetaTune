@@ -58,15 +58,14 @@
 				case "tracks":
 					$this->views = $json_decoded['view']['total'];
 					$this->tracks = $json_decoded['tracks'];
+					$number = 1;
 					if (isset($json_decoded['tracks']))
 						foreach ($json_decoded['tracks'] as $track)
 						{
-							$newTrack = new Track($track['ids']['trackId'], $track['title'], $track['duration']);
+							$newTrack = new Track($track['ids']['trackId'], $track['title'], $track['duration'], $number++);
 							$this->tracks[] = $newTrack;
 						}
 					break;
 			}
 		}
 	}
-
-?>

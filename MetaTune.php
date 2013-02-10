@@ -73,9 +73,10 @@
 					 * 
 					 * Sanitize user search input.
 					 * Organize front end by headers.
-					 * Add track time and numbers to tracks.
+					 * Add track numbers to tracks.
 					 * Add anchors for each view.
 					 * Remove broken links from biography.
+					 * Add music styles to artists' biography.
 					 *
 					 */
 	

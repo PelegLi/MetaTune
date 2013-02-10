@@ -83,9 +83,11 @@
 								 "MetaTune.php?searchItems=Name&idSearch=id&search_value=$0",
 								 "MetaTune.php?searchItems=Album&idSearch=id&search_value=$0");
 			
+
+//			$pattern = array ("/\[roviLink=\"M[A-Z]\"\]/", "/\[\/roviLink\]/");
+//			$replacement = "!";
+			
 			$text = preg_replace($pattern, $replacement, $text);
 			return $text;
 		}
 	}
-
-?>

@@ -3,9 +3,11 @@
 	<strong> <?php echo $this->title ?>	</strong>
 </div>
 
-<div id="genres">
-	<span class="label"><strong>Genres: </strong></span> <?php $this->printArrayValues($this->genres); ?>
-</div>
+<?php if ($this->genres != null) :?>
+	<div id="genres">
+		<span class="label"><strong>Genres: </strong></span> <?php $this->printArrayValues($this->genres); ?>
+	</div>
+<?php endif;?>
 
 <?php $this->removeDuplicateAlbums($this->albums); ?>
 

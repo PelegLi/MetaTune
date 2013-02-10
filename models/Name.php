@@ -10,6 +10,7 @@
 		public $death;
 		public $country;
 		public $musicBio;
+		public $active = array();
 		public $albums = array();
 		public $themes = array();
 		public $dataClusters = array("info", "discography", "themes", "musicbio");
@@ -35,6 +36,7 @@
 							$this->genres[] = $genre['name'];
 					$this->birth = $this->rectifyDate($json_decoded['name']['birth']['date'], "Name");
 					$this->death = $this->rectifyDate($json_decoded['name']['death']['date'], "Name");
+					$this->active = $json_decoded['name']['active'];
 					break;
 					
 				case "discography":
@@ -62,5 +64,3 @@
 			}
 		}
 	}
-	
-?>

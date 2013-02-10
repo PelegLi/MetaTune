@@ -8,6 +8,7 @@
 		public $id;
 		public $json_decoded;
 		public $searchItem;
+		public $headers;
 		public $response = array();
 		
 		function __construct($search_value, $idSearch)
@@ -28,22 +29,33 @@
 				
 				try
 				{
-					if (!$json_request = @file_get_contents($requestString))
-						throw new Exception($search_value);
-					else 
+					$this->headers = get_headers($requestString);
+					
+					if (strpos($this->headers[0], "200"))
 					{
+						$json_request = @file_get_contents($requestString);
 						$this->response["code"] = "200";
 						$this->response["status"] = "ok";
 						$this->json_decoded = json_decode($json_request, true);
 						$this->searchItem->parseJSON($this->json_decoded, $dataCluster);
 					}
+					
+					else if (strpos($this->headers[0], "404"))
+					{
+						$this->response["code"] = "404";
+						$this->response["status"] = "error";
+						$this->response["message"] = "$search_value";
+					}
+					
+					else
+						throw new Exception($search_value);						
 				}
+				
 				catch (Exception $ex)
 				{
-					$this->response["code"] = "404";
+					$this->response["code"] = "$this->headers[0]";
 					$this->response["status"] = "error";
 					$this->response["message"] = $ex->getMessage();
-					break;
 				}
 			}
 		}
@@ -52,6 +64,4 @@
 		{
 			$this->id = $sig;
 		}
-	}
-			
-?>		
+	}	
